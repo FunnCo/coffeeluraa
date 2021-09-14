@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.funnco.coffeelur.R
+import com.funnco.coffeelur.activity.info.InfoActivity
 import com.funnco.coffeelur.activity.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -15,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         Handler().postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, InfoActivity::class.java))
         }, 2000)
     }
 }
