@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         supportActionBar?.hide()
 
-        val adapterPositions = CoffeeAdapter(Repository.getCoffeeList())
+        val adapterPositions = CoffeeAdapter(Repository.getCoffeeList(), this)
         binding.activityMainRecyclerPositions.adapter = adapterPositions
         binding.activityMainRecyclerPositions.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
 
@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         binding.activityMainRecyclerCategories.adapter = adapterCategories
         binding.activityMainRecyclerCategories.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
+
         setContentView(binding.root)
     }
+
 }

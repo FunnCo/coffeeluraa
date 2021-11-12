@@ -16,9 +16,15 @@ class InfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityInfoBinding.inflate(layoutInflater)
         supportActionBar?.hide()
-        var pageAdapter = PageAdapter(Repository.getCoffeeList())
+        var pageAdapter = PageAdapter(Repository.orders)
 
         binding.activityInfoPager.adapter = pageAdapter
+
+        binding.activityInfoButtonBack.setOnClickListener {
+            onBackPressed()
+        }
+
+
 
         setContentView(binding.root)
     }

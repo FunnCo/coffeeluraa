@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.funnco.coffeelur.common.data.Repository
 import com.funnco.coffeelur.common.data.model.CoffeeModel
 import com.funnco.coffeelur.databinding.PageInfoBinding
 import com.squareup.picasso.Picasso
@@ -28,12 +29,14 @@ class PageAdapter(val listOfItems: List<CoffeeModel>) :
             binding.itemPageFabPlus.setOnClickListener {
                 binding.itemPageTextCount.text =
                     (Integer.parseInt(binding.itemPageTextCount.text.toString()) + 1).toString()
+                Repository.orders.add(item)
             }
 
             binding.itemPageFabMinus.setOnClickListener {
                 if (Integer.parseInt(binding.itemPageTextCount.text.toString()) > 0) {
                     binding.itemPageTextCount.text =
                         (Integer.parseInt(binding.itemPageTextCount.text.toString()) - 1).toString()
+                    Repository.orders.remove(item)
                 }
             }
         }
